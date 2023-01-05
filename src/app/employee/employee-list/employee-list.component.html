@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="header">
+
+    </div>
+    <table class="table table-bordered table-stripes">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Emp name</th>
+                <th>Designation</th>
+                <th>Salary</th>
+                <th>Contact</th>
+                <th>DOJ</th>
+                <th>Action</th>
+                <th>IsActive</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employeeService.employees">
+                <td (click)="populateForm(employee)">{{employee.empId}}</td>
+                <td (click)="populateForm(employee)">{{employee.empName}}</td>
+                <td (click)="populateForm(employee)">{{employee.designation}}</td>
+                <td (click)="populateForm(employee)">{{employee.salary}}</td>
+                <td (click)="populateForm(employee)">{{employee.phoneNumber}}</td>
+                <td (click)="populateForm(employee)">{{employee.dateOfJoining}}</td>
+                <td (click)="populateForm(employee)">{{employee.isActive}}</td>
+               <td>
+                    <button class="btn btn-sm btn-info" (click)="updateEmployee(employee.empId)">E</button>
+                    &nbsp;
+                    <button class=" btn btn-sm btn-outline-danger" (click)="deleteEmployee(employee.empId)">X</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

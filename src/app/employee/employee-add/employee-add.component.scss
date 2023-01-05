@@ -1,0 +1,20 @@
+.form-group>input{
+    font-weight: bolder;
+}
+.form-group input::placeholder{
+    color: rgb(228,211,211);
+}
+
+.form-group>select{
+    font-weight: bolder;
+}
+input.invalid{
+    border-color: red;
+}
+
+.validation-error{
+    width: 100%;
+    // margin-top: 25em;
+    font-size: 80%;
+    color: #dd3535;
+}
