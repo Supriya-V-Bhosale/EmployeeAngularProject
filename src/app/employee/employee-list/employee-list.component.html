@@ -2,7 +2,7 @@
     <div class="header">
 
     </div>
-    <table class="table table-bordered table-stripes">
+    <table class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>ID</th>
@@ -25,7 +25,7 @@
                 <td (click)="populateForm(employee)">{{employee.dateOfJoining}}</td>
                 <td (click)="populateForm(employee)">{{employee.isActive}}</td>
                <td>
-                    <button class="btn btn-sm btn-info" (click)="updateEmployee(employee.empId)">E</button>
+                    <button class="btn btn-sm btn-info" (click)="updateEmployee(employee.empId,employee)" >E</button>
                     &nbsp;
                     <button class=" btn btn-sm btn-outline-danger" (click)="deleteEmployee(employee.empId)">X</button>
                 </td>

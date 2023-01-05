@@ -65,7 +65,7 @@
 
     <!-- Department Id -->
 
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="">DeptId:</label>
         <input name="deptId" #deptId="ngModel" type="number" [(ngModel)]="employeeService.formEmployeeData.deptId"
         class="form-control" placeholder="Enter deptId" minlength="3" maxlength="25" 
@@ -75,8 +75,33 @@
        </div>
     </div>
 
-    <!-- isActive -->
+   
+    <div class="form-group">
+        <div class="form-check">
+            <label class="form-check-lable"> In Service </label>
+            <input type="checkbox" name="isActive" #isActive="ngModel" id="IsActive"
+            [(ngModel)]="employeeService.formEmployeeData.isActive" class="form-check-input"/>
+        </div>
+    </div> -->
 
+
+<!-- drop down -->
+    <div class="form-group">
+        <label for="">Department:</label>
+        <select name="deptId" id="deptId" class="form-control"  #deptId="ngModel" 
+        [(ngModel)]="employeeService.formEmployeeData.deptId" required>
+        <option value=0 selected>---Selected Department---</option>
+        <option *ngFor="let dept of employeeService.departments" 
+        value="{{dept.deptId}}">{{dept.deptName}}</option>
+
+        </select>
+
+       <div class="validation-error" *ngIf="deptId.touched && deptId.invalid">
+            <div *ngIf="deptId.errors.required">Department required</div>
+       </div>
+    </div>
+
+   
     <div class="form-group">
         <div class="form-check">
             <label class="form-check-lable"> In Service </label>
@@ -85,7 +110,9 @@
         </div>
     </div>
 
+
     <!-- Submit -->
+    
     <br>
     <div class="form-group">
         <button type="submit" class="btn btn-lg btn-primary form-control"

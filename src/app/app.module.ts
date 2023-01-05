@@ -9,19 +9,26 @@ import { EmployeeListComponent } from './employee/employee-list/employee-list.co
 import{EmployeeService} from './shared/employee.service';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { DepartmentComponent } from './department/department.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeComponent,
     EmployeeAddComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    DepartmentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot(), 
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Employee } from 'src/app/shared/employee';
 import{EmployeeService} from 'src/app/shared/employee.service';
 @Component({
@@ -8,7 +9,7 @@ import{EmployeeService} from 'src/app/shared/employee.service';
 })
 export class EmployeeListComponent implements OnInit {
 
-  constructor(public employeeService: EmployeeService) { }
+  constructor(public employeeService: EmployeeService, private router:Router ) { }
 
   ngOnInit(): void {
     console.log("Supriya");
@@ -29,8 +30,13 @@ export class EmployeeListComponent implements OnInit {
   }
 
   //update employee
-  updateEmployee(empId:number){
+  updateEmployee(empId:number,employee:Employee){
     console.log(empId);
+    //navigate to Edit Form with selected employee details
+    this.router.navigate(['employeeadd',empId]);
+    this.employeeService.formEmployeeData=Object.assign({},employee);
+
+
   }
 
   //Delete Employee
