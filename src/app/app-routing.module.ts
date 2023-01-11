@@ -1,13 +1,13 @@
 import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EmployeeAddComponent } from './employee/employee-add/employee-add.component';
-import { EmployeeComponent } from './employee/employee.component';
+import { SalesAddComponent } from './sales/sales-add/sales-add.component';
+import { SalesComponent } from './sales/sales.component';
 
 const routes: Routes = [
-  {path:'' ,redirectTo:'empolyeelist', pathMatch:'full'},
- { path:'empolyeelist',component:EmployeeComponent},
- {path:'employeeadd' ,component:EmployeeAddComponent},
- {path:'employeeadd/:empId',component:EmployeeAddComponent}
+  {path:'' ,redirectTo:'saleslist', pathMatch:'full'},
+ { path:'saleslist',component:SalesComponent},
+ {path:'salesadd' ,component:SalesAddComponent},
+ {path:'salesadd/:visitId',component:SalesAddComponent}
 ];
 
 @NgModule({

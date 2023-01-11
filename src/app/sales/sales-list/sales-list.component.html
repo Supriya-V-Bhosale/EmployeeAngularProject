@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="header">
+        <div class="form-control">
+            <!-- Search functionality -->
+            <input type="text" class="form-control" placeholder="Search Test here"
+            [(ngModel)]="term" />
+        </div>
+        <!-- Add employee -->
+        <a routerLink="/salesadd" class="btn btn-outline-secondary" 
+        style="float:right; margin: 10px;">
+        Add Sales Visitors
+        </a>
+
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Customer name</th>
+                <th>contactPerson</th>
+                <th>contactNumber</th>
+                <th>interestProduct</th>
+                <th>visitSubject</th>
+                <th>description</th>
+                <th>visitDateTime</th>
+                <th>empId</th>
+                <th>isDisabled</th>
+                <th>isDeleted</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let sales of salesService.sales | filter:term| paginate: { itemsPerPage: 4, currentPage: page } ">
+                <td >{{sales.visitId}}</td>
+                <td >{{sales.custName}}</td>
+                <td >{{sales.contactPerson}}</td>
+                <td >{{sales.contactNumber}}</td>
+                <td >{{sales.interestProduct}}</td>
+                <td >{{sales.visitSubject}}</td>
+                <td >{{sales.description}}</td>
+                <td >{{sales.visitDateTime}}</td>
+                <td >{{employee.empId}}</td>
+                <td >{{sales.isDisabled}}</td>
+                <td >{{sales.isDeleted}}</td>
+                
+               <td>
+                    <button class="btn btn-sm btn-info" (click)="updateSales(sales.visitId,sales)" >E</button>
+                    &nbsp;
+                    <button class=" btn btn-sm btn-outline-danger" (click)="deleteSales(sales.visitId)">X</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- footer -->
+    <div class="footer">
+        <!-- Pagination -->
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+</div>

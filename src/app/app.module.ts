@@ -3,23 +3,25 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EmployeeComponent } from './employee/employee.component';
-import { EmployeeAddComponent } from './employee/employee-add/employee-add.component';
-import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
-import{EmployeeService} from './shared/employee.service';
+import { SalesComponent } from './sales/sales.component';
+import { SalesAddComponent } from './sales/sales-add/sales-add.component';
+import {SalesListComponent } from './sales/sales-list/sales-list.component'
+import{SalesService} from './shared/sales.service';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { DepartmentComponent } from './department/department.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { ToastrModule } from 'ngx-toastr';
+import { EmployeeComponent } from './employee/employee.component';
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeComponent,
-    EmployeeAddComponent,
-    EmployeeListComponent,
-    DepartmentComponent
+    SalesComponent,
+    SalesAddComponent,
+    SalesListComponent,
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,
@@ -28,9 +30,11 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule, 
-    ToastrModule.forRoot(), 
+    ToastrModule.forRoot(),
+    Ng2SearchPipeModule ,
+    NgxPaginationModule
   ],
-  providers: [EmployeeService],
+  providers: [SalesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

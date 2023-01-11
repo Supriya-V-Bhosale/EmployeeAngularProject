@@ -1,0 +1,62 @@
+<form action="" name="salesForm" #form="ngForm" autocomplete="off" 
+(ngSubmit)="onSubmit(form)">
+    <!-- visitIdID --AutoGenerate-->
+    <div class="form-group">
+        visitIdisitId ID:
+        <input type="text" readonly name="visitId" [(ngModel)]="SalesService.formSalesData.visitId">
+    </div>
+
+    <div class="form-group">
+        <label for="">Customer Name:</label>
+        <input name="custName" #custName="ngModel" [(ngModel)]="SalesService.formSalesData.custName"
+        class="form-control" placeholder="Enter Customer Name" minlength="3" maxlength="25"
+         required [ngClass]="{'is-invalid':custName.touched && custName.invalid}"/>
+       <div class="validation-error" *ngIf="custName.touched && custName.invalid">
+            <div *ngIf="custName.errors.required">Customer Name is required</div>
+       </div>
+    </div>
+
+    <!-- contact Person -->
+
+    <div class="form-group">
+        <label for="">contactPerson:</label>
+        <input name="contactPerson" #contactPerson="ngModel" [(ngModel)]="SalesService.formSalesData.contactPerson"
+        class="form-control" placeholder="Enter Designation" minlength="3" maxlength="25" 
+        required [ngClass]="{'is-invalid':contactPerson.touched && contactPerson.invalid}">
+       <div class="validation-error" *ngIf="contactPerson.touched && contactPerson.invalid">
+            <div *ngIf="contactPerson.errors.required">contactPerson is required</div>
+       </div>
+    </div>
+    <!-- Contact Number -->
+    <div class="form-group">
+        <label for="">Contact Number:</label>
+        <input name="contactNumber" #contactNumber="ngModel" [(ngModel)]="SalesService.formSalesData.contactNumber"
+        class="form-control" placeholder="Enter Contact Number" minlength="3" maxlength="25" 
+        required [ngClass]="{'is-invalid':contactNumber.touched && contactNumber.invalid}">
+       <div class="validation-error" *ngIf="contactNumber.touched && contactNumber.invalid">
+            <div *ngIf="contactNumber.errors.required">Contact Number is required</div>
+       </div>
+    </div>
+    
+    <!-- Interest Product -->
+
+    <div class="form-group">
+        <label for="">interestProduct :</label>
+        <input name="interestProduct" #interestProduct="ngModel" [(ngModel)]="SalesService.formSalesData.interestProduct"
+        class="form-control" placeholder="Enter Interest Product Name" minlength="3" maxlength="25" 
+        required [ngClass]="{'is-invalid':interestProduct.touched && interestProduct.invalid}">
+       <div class="validation-error" *ngIf="interestProduct.touched && interestProduct.invalid">
+            <div *ngIf="interestProduct.errors.required">Interest Product Name is required</div>
+       </div>
+    </div>
+
+   
+    <!-- Submit -->
+    
+    <br>
+    <div class="form-group">
+        <button type="submit" class="btn btn-lg btn-primary form-control"
+        [disabled]="!(form.valid && form.dirty)">Submit
+        </button>
+    </div>
+</form>
